@@ -1,0 +1,60 @@
+---
+import { useTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  lang: Locale;
+  /** 文章路径，用于 giscus mapping=pathname 时区分讨论线程 */
+  identifier?: string;
+}
+
+const { lang, identifier } = Astro.props;
+const t = useTranslations(lang);
+
+// TODO: 到 https://giscus.app 生成配置，把下面三个占位替换为你的仓库信息
+const repo = 'YOUR_NAME/YOUR_REPO';
+const repoId = 'YOUR_REPO_ID';
+const categoryId = 'YOUR_CATEGORY_ID';
+const configured = !repo.startsWith('YOUR_');
+---
+
+<section class="comments" id="comments">
+  <h2>{t('post.comments')}</h2>
+  {
+    configured ? (
+      <script
+        src="https://giscus.app/client.js"
+        data-repo={repo}
+        data-repo-id={repoId}
+        data-category="Announcements"
+        data-category-id={categoryId}
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang={lang === 'zh' ? 'zh-CN' : 'en'}
+        data-term={identifier}
+        crossorigin="anonymous"
+        async
+      />
+    ) : (
+      <p class="comments-todo">{t('post.commentsTodo')}</p>
+    )
+  }
+</section>
+
+<style>
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .comments-todo {
+    font-size: 0.9rem;
+    color: var(--color-text-faint);
+    padding: 20px;
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius);
+  }
+</style>

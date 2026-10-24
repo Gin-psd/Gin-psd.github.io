@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../i18n/config';
+---
+
+<BaseLayout title="页面不存在" lang="zh">
+  <div class="page container">
+    <div class="empty" style="padding: 100px 0;">
+      <h1 class="page-title">404</h1>
+      <p style="margin: 12px 0 28px;">你访问的页面不存在或已被移动。</p>
+      <a class="btn btn-primary" href={getLocalizedPath('/', 'zh')}>回到首页</a>
+    </div>
+  </div>
+</BaseLayout>

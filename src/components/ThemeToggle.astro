@@ -1,0 +1,29 @@
+---
+import { useTranslations, type Locale } from '../i18n/utils';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<button class="icon-btn" id="theme-toggle" aria-label={t('theme.toggle')} title={t('theme.toggle')}>
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>
+</button>
+
+<style>
+  .icon-sun { display: none; }
+  html.dark .icon-sun { display: block; }
+  html.dark .icon-moon { display: none; }
+</style>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  toggle?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const dark = !root.classList.contains('dark');
+    root.classList.toggle('dark', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    // 通知监听组件（如 Lightfall 背景）切换亮/暗配色
+    window.dispatchEvent(new CustomEvent('theme-change', { detail: { dark } }));
+  });
+</script>

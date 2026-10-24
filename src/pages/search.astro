@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Search from '../components/Search.astro';
+---
+
+<BaseLayout title="搜索" lang="zh" currentPath="">
+  <div class="page container">
+    <h1 class="page-title">搜索文章</h1>
+    <p class="page-desc">在全部中文文章中检索关键词。</p>
+    <Search lang="zh" />
+  </div>
+</BaseLayout>

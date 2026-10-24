@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { siteConfig, getLocalizedPath, type Locale } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import PostListItem from './PostListItem.astro';
+import Lightfall from './Lightfall.astro';
+
+interface Props {
+  lang: Locale;
+  posts: CollectionEntry<'blog'>[];
+  tags: [string, number][];
+  /** 全站文章总数（用于统计行） */
+  totalPosts: number;
+}
+
+const { lang, posts, tags, totalPosts } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="hero has-lightfall">
+  <div class="hero-lightfall">
+    <Lightfall
+      colors={['#99f6e4', '#5eead4', '#2dd4bf', '#22d3ee']}
+      backgroundColor="#0d9488"
+      speed={0.35}
+      streakCount={3}
+      streakWidth={0.8}
+      twinkle={0.3}
+      bloom={0.35}
+      backgroundGlow={0.12}
+      fade={0.12}
+      dpr={1.5}
+      holdToWarp
+      intro
+      light={{ colors: ['#0d9488', '#0f766e', '#0891b2'], lightMode: true, opacity: 0.5, bloom: 0.22 }}
+    />
+  </div>
+  <div class="container hero-inner">
+    <span class="hero-eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4.09 12.97a1 1 0 0 0 .77 1.64h5.14l-1.99 7a1 1 0 0 0 1.79.79L20 11.03a1 1 0 0 0-.77-1.64h-5.14L16 2a1 1 0 0 0-1.99 0Z" /></svg>
+      {t('home.hero.greeting')} {siteConfig.author[lang]}
+    </span>
+    <h1>
+      {lang === 'zh' ? '用代码与文字' : 'Code, words,'}
+      <span class="grad">{lang === 'zh' ? '记录成长' : 'and everything between'}</span>
+    </h1>
+    <p>{siteConfig.description[lang]}</p>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href={getLocalizedPath('/posts', lang)}>
+        {t('home.hero.ctae')}
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+      <a class="btn btn-ghost" href={getLocalizedPath('/about', lang)}>{t('nav.about')}</a>
+    </div>
+
+    <div class="hero-stats">
+      <span><b>{totalPosts}</b> {lang === 'zh' ? '篇文章' : 'posts'}</span>
+      <span><b>{tags.length}</b> {lang === 'zh' ? '个标签' : 'tags'}</span>
+      <span>{lang === 'zh' ? '中英双语' : 'Bilingual zh/en'}</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <section>
+    <div class="section-head">
+      <h2>{t('home.latest')}</h2>
+      <a class="more" href={getLocalizedPath('/posts', lang)}>{t('home.viewAll')} →</a>
+    </div>
+    <div class="post-list">
+      {posts.map((post) => <PostListItem post={post} lang={lang} />)}
+    </div>
+  </section>
+
+  {
+    tags.length > 0 && (
+      <section style="margin-top: 52px;">
+        <div class="section-head">
+          <h2>{t('nav.tags')}</h2>
+          <a class="more" href={getLocalizedPath('/tags', lang)}>{t('home.viewAll')} →</a>
+        </div>
+        <div class="tag-cloud">
+          {tags.map(([tag, count]) => (
+            <a class="tag" href={getLocalizedPath(`/tags/${tag}`, lang)}>
+              {tag} · {count}
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+</div>

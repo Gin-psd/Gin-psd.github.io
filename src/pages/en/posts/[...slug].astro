@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostPage from '../../../components/PostPage.astro';
+import { findTranslation, getPublishedPosts } from '../../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts('en');
+
+  const paths = [];
+  for (let i = 0; i < posts.length; i++) {
+    paths.push({
+      params: { slug: posts[i].data.slug },
+      props: {
+        post: posts[i],
+        prev: posts[i + 1] as CollectionEntry<'blog'> | undefined,
+        next: posts[i - 1] as CollectionEntry<'blog'> | undefined,
+        otherLangPost: await findTranslation(posts[i].data.translationKey, 'zh'),
+      },
+    });
+  }
+  return paths;
+}
+
+const { post, prev, next, otherLangPost } = Astro.props;
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} lang="en" currentPath="/posts">
+  <PostPage post={post} prev={prev} next={next} otherLangPost={otherLangPost} lang="en" />
+</BaseLayout>

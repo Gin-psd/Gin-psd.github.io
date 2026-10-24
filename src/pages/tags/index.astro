@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath, type Locale } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+import { getPublishedPosts, getTagCounts } from '../../lib/posts';
+
+const lang: Locale = 'zh';
+const t = useTranslations(lang);
+const posts = await getPublishedPosts(lang);
+const tags = getTagCounts(posts);
+---
+
+<BaseLayout title={t('tags.title')} lang={lang} currentPath="/tags">
+  <div class="page container">
+    <h1 class="page-title">{t('tags.title')}</h1>
+    <p class="page-desc">{t('tags.all', { count: tags.length })}</p>
+    {
+      tags.length === 0 ? (
+        <p class="empty">{t('posts.empty')}</p>
+      ) : (
+        <div class="tag-cloud" style="font-size: 1.05rem;">
+          {tags.map(([tag, count]) => (
+            <a class="tag" href={getLocalizedPath(`/tags/${tag}`, lang)} style="font-size: 0.9rem; padding: 6px 14px;">
+              {tag} · {count}
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

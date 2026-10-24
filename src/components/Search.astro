@@ -1,0 +1,87 @@
+---
+import { useTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="search-box">
+  <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+  <input id="search-input" type="search" placeholder={t('search.placeholder')} autocomplete="off" />
+</div>
+<div class="search-status" id="search-status">{t('search.hint')}</div>
+<div class="search-results" id="search-results"></div>
+
+<script>
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const status = document.getElementById('search-status')!;
+  const results = document.getElementById('search-results')!;
+  const hint = status.textContent ?? '';
+
+  // Pagefind 索引只在 astro build 之后生成；dev 模式下提示先构建
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let pagefind: any;
+
+  async function loadPagefind() {
+    if (pagefind !== undefined) return pagefind;
+    try {
+      // 运行时按路径加载（构建后由 pagefind CLI 生成），@vite-ignore 防止打包期解析
+      const modulePath = '/pagefind/pagefind.js';
+      pagefind = await import(/* @vite-ignore */ modulePath);
+      await pagefind.options({ excerptLength: 20 });
+    } catch {
+      pagefind = null;
+    }
+    return pagefind;
+  }
+
+  function escapeHtml(s: string) {
+    return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+  }
+
+  let timer: number | undefined;
+
+  input?.addEventListener('input', (e) => {
+    clearTimeout(timer);
+    timer = window.setTimeout(() => runSearch((e.target as HTMLInputElement).value.trim()), 200);
+  });
+
+  async function runSearch(query: string) {
+    if (!query) {
+      status.textContent = hint;
+      results.innerHTML = '';
+      return;
+    }
+    const pf = await loadPagefind();
+    if (!pf) {
+      status.textContent = '搜索索引不可用：请先执行 npm run build，再 npm run preview';
+      return;
+    }
+    const search = await pf.search(query);
+    if (search.results.length === 0) {
+      status.textContent = '没有找到相关文章';
+      results.innerHTML = '';
+      return;
+    }
+    status.textContent = `共找到 ${search.results.length} 篇相关文章`;
+    const items = await Promise.all(
+      search.results.slice(0, 20).map(async (r) => {
+        const data = await r.data();
+        return { url: data.url, title: data.meta.title, excerpt: data.excerpt };
+      })
+    );
+    results.innerHTML = items
+      .map(
+        (item) => `
+        <a href="${item.url}">
+          <div class="r-title">${escapeHtml(item.title)}</div>
+          <div class="r-excerpt">${item.excerpt}</div>
+        </a>`
+      )
+      .join('');
+  }
+</script>

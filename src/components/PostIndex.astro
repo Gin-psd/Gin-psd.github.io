@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { type Locale } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import PostListItem from './PostListItem.astro';
+
+interface Props {
+  /** 该语言下的全部文章（已按发布日期倒序） */
+  posts: CollectionEntry<'blog'>[];
+  lang: Locale;
+}
+
+const { posts, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="page container">
+  <h1 class="page-title">{t('posts.title')}</h1>
+  <p class="page-desc">
+    {lang === 'zh' ? `共 ${posts.length} 篇` : `${posts.length} posts in total`}
+  </p>
+
+  {
+    posts.length === 0 ? (
+      <p class="empty">{t('posts.empty')}</p>
+    ) : (
+      <div class="post-list">
+        {posts.map((post) => (
+          <PostListItem post={post} lang={lang} />
+        ))}
+      </div>
+    )
+  }
+</div>

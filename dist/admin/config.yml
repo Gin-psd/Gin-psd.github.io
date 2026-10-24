@@ -1,0 +1,95 @@
+# Sveltia CMS 配置
+# 文档：https://github.com/sveltia/cms
+#
+# 使用步骤：
+# 1. 把本博客推送到一个 GitHub 仓库
+# 2. 修改下方 backend.repo 为 "你的用户名/仓库名"
+# 3. 部署到 Vercel / Netlify 后，访问 https://你的域名/admin/
+# 4. 首次使用需在 GitHub 仓库 Settings -> OAuth Apps 创建应用，
+#    或使用 Sveltia 提供的本地模式（开发时无需配置）
+
+backend:
+  name: github
+  repo: YOUR_NAME/YOUR_REPO   # TODO: 替换为你的 GitHub 仓库，如 zhangsan/my-blog
+  branch: main                # TODO: 按你的主分支修改
+
+media_folder: public/images
+public_folder: /images
+
+# 站点发布地址（用于预览链接）
+site_url: https://example.com
+
+collections:
+  - name: blog
+    label: 文章 / Posts
+    label_singular: 文章 / Post
+    folder: src/content/blog
+    create: true
+    # 新文章按语言分目录存放
+    path: '{{lang}}/{{slug}}'
+    slug: '{{fields.slug}}'
+    summary: '{{title}}（{{lang}}）'
+    sortable_fields: ['pubDate', 'title']
+    view_filters:
+      - label: 中文
+        field: lang
+        pattern: 'zh'
+      - label: English
+        field: lang
+        pattern: 'en'
+      - label: 草稿
+        field: draft
+        pattern: true
+    fields:
+      - label: URL Slug
+        name: slug
+        widget: string
+        hint: 文章网址的唯一标识，中英版本建议保持一致，如 my-first-post
+      - label: 标题 / Title
+        name: title
+        widget: string
+      - label: 摘要 / Description
+        name: description
+        widget: text
+        hint: 显示在列表和搜索结果中的一句话介绍
+      - label: 语言 / Language
+        name: lang
+        widget: select
+        options:
+          - { label: 中文, value: zh }
+          - { label: English, value: en }
+        default: zh
+      - label: 发布日期 / Published
+        name: pubDate
+        widget: datetime
+        format: 'YYYY-MM-DDTHH:mm:ssZ'
+        date_format: 'YYYY-MM-DD'
+        time_format: 'HH:mm:ss'
+      - label: 更新日期 / Updated
+        name: updatedDate
+        widget: datetime
+        required: false
+      - label: 标签 / Tags
+        name: tags
+        widget: list
+        required: false
+        hint: 回车添加一个标签
+      - label: 互译标识 / Translation Key
+        name: translationKey
+        widget: string
+        required: false
+        hint: 中英互译的两篇文章填写相同的字符串，页面间才能互相跳转
+      - label: 封面图 / Cover
+        name: heroImage
+        widget: image
+        required: false
+        media_folder: '{{media_folder}}/covers'
+        public_folder: '{{public_folder}}/covers'
+      - label: 草稿 / Draft
+        name: draft
+        widget: boolean
+        default: false
+        hint: 勾选后文章不会出现在网站上
+      - label: 正文 / Body
+        name: body
+        widget: markdown

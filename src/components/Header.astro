@@ -1,0 +1,65 @@
+---
+import { siteConfig, getCorePath, getLocalizedPath, getOtherLocale, type Locale } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  lang: Locale;
+  currentPath?: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const t = useTranslations(lang);
+const corePath = getCorePath(Astro.url.pathname);
+const other = getOtherLocale(lang);
+
+const navItems = [
+  { path: '/', key: 'nav.home' },
+  { path: '/posts', key: 'nav.posts' },
+  { path: '/tags', key: 'nav.tags' },
+  { path: '/about', key: 'nav.about' },
+] as const;
+---
+
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href={getLocalizedPath('/', lang)}>
+      <span class="logo-mark">B</span>
+      <span>{siteConfig.title[lang]}</span>
+    </a>
+
+    <nav class="nav" id="site-nav" aria-label={t('nav.menu')}>
+      {
+        navItems.map(({ path, key }) => (
+          <a
+            href={getLocalizedPath(path, lang)}
+            class:list={['nav-link', { active: path === '/' ? corePath === '/' : corePath.startsWith(path) }]}
+            aria-current={corePath === path ? 'page' : undefined}
+          >
+            {t(key)}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-btn" href={getLocalizedPath('/search', lang)} aria-label={t('nav.search')}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+      </a>
+      <ThemeToggle lang={lang} />
+      <a class="lang-btn" href={getLocalizedPath(corePath, other)} title={t('lang.switch')}>{other.toUpperCase()}</a>
+      <button class="icon-btn menu-toggle" id="menu-toggle" aria-label={t('nav.menu')} aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle?.setAttribute('aria-expanded', String(open));
+  });
+</script>

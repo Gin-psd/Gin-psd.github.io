@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostIndex from '../../../components/PostIndex.astro';
+import { getPublishedPosts } from '../../../lib/posts';
+
+const posts = await getPublishedPosts('en');
+---
+
+<BaseLayout title="Posts" lang="en" currentPath="/posts">
+  <PostIndex posts={posts} lang="en" />
+</BaseLayout>

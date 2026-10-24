@@ -1,0 +1,121 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getLocalizedPath, type Locale } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { render } from 'astro:content';
+import Giscus from './Giscus.astro';
+import TableOfContents from './TableOfContents.astro';
+import ReadingProgress from './ReadingProgress.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  prev?: CollectionEntry<'blog'>;
+  next?: CollectionEntry<'blog'>;
+  /** 另一语言的同篇译文，用于文末语言切换 */
+  otherLangPost?: CollectionEntry<'blog'>;
+  lang: Locale;
+}
+
+const { post, prev, next, otherLangPost, lang } = Astro.props;
+const t = useTranslations(lang);
+const { title, description, pubDate, updatedDate, tags } = post.data;
+const { Content, headings } = await render(post);
+
+/** 粗略估算阅读时间：中文约 350 字/分钟，英文约 200 词/分钟 */
+const cjkCount = (post.body?.match(/[一-龥]/g) ?? []).length;
+const wordCount = (post.body?.match(/[a-zA-Z0-9]+/g) ?? []).length;
+const minutes = Math.max(1, Math.round(cjkCount / 350 + wordCount / 200));
+
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<ReadingProgress />
+
+<div class="page container">
+  <div class="post-layout">
+    <article>
+      <header class="post-header">
+        <h1>{title}</h1>
+        <div class="meta">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            {t('post.published')} <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+          </span>
+          {
+            updatedDate && (
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v5h-5"/></svg>
+                {t('post.updated')} <time datetime={updatedDate.toISOString()}>{fmt(updatedDate)}</time>
+              </span>
+            )
+          }
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            {t('post.readingTime', { minutes })}
+          </span>
+        </div>
+        <p class="desc">{description}</p>
+        {
+          post.data.heroImage && (
+            <div class="hero-image">
+              <img src={post.data.heroImage} alt={title} />
+            </div>
+          )
+        }
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <footer class="post-footer">
+        {
+          tags.length > 0 && (
+            <div class="post-tags-row">
+              <span class="tags-label">{t('post.tags')}</span>
+              {tags.map((tag) => (
+                <a class="tag" href={getLocalizedPath(`/tags/${tag}`, lang)}>{tag}</a>
+              ))}
+            </div>
+          )
+        }
+        {
+          otherLangPost && (
+            <p class="other-lang">
+              <a href={getLocalizedPath(`/posts/${otherLangPost.data.slug}`, lang)}>
+                {t('post.otherLang')} →
+              </a>
+            </p>
+          )
+        }
+
+        <nav class="post-nav" aria-label="post navigation">
+          {
+            prev ? (
+              <a href={getLocalizedPath(`/posts/${prev.data.slug}`, lang)} class="prev">
+                <div class="dir">← {t('post.prev')}</div>
+                <div class="t">{prev.data.title}</div>
+              </a>
+            ) : (
+              <span />
+            )
+          }
+          {
+            next ? (
+              <a href={getLocalizedPath(`/posts/${next.data.slug}`, lang)} class="next">
+                <div class="dir">{t('post.next')} →</div>
+                <div class="t">{next.data.title}</div>
+              </a>
+            ) : (
+              <span />
+            )
+          }
+        </nav>
+
+        <Giscus lang={lang} identifier={`/posts/${post.data.slug}`} />
+      </footer>
+    </article>
+
+    <TableOfContents headings={headings} lang={lang} />
+  </div>
+</div>

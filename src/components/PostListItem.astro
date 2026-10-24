@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getLocalizedPath, type Locale } from '../i18n/config';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  lang: Locale;
+}
+
+const { post, lang } = Astro.props;
+const { title, description, pubDate, tags } = post.data;
+---
+
+<a class="post-item" href={getLocalizedPath(`/posts/${post.data.slug}`, lang)}>
+  <time class="date" datetime={pubDate.toISOString()}>{pubDate.toISOString().slice(0, 10)}</time>
+  <div class="main">
+    <h3>{title}</h3>
+    <p class="desc">{description}</p>
+  </div>
+  {
+    tags.length > 0 && (
+      <div class="side">
+        {tags.slice(0, 2).map((tag) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )
+  }
+</a>

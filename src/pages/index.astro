@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeSections from '../components/HomeSections.astro';
+import { getPublishedPosts, getTagCounts } from '../lib/posts';
+
+const posts = await getPublishedPosts('zh');
+---
+
+<BaseLayout title="首页" lang="zh" currentPath="/">
+  <HomeSections lang="zh" posts={posts.slice(0, 5)} tags={getTagCounts(posts).slice(0, 12)} totalPosts={posts.length} />
+</BaseLayout>

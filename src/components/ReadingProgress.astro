@@ -1,0 +1,13 @@
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+<script>
+  const bar = document.getElementById('reading-progress');
+  const update = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    bar?.style.setProperty('width', max > 0 ? `${(doc.scrollTop / max) * 100}%` : '0%');
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+</script>

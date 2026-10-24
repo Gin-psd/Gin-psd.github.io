@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { type Locale } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+import { getPublishedPosts } from '../../lib/posts';
+
+const lang: Locale = 'zh';
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts('zh');
+  const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
+  return tags.map((tag) => ({ params: { tag }, props: { tag } }));
+}
+
+const { tag } = Astro.props;
+const decodedTag = decodeURIComponent(tag);
+const posts = (await getPublishedPosts('zh')).filter((p) => p.data.tags.includes(decodedTag));
+---
+
+<BaseLayout title={`${decodedTag} · ${t('tags.title')}`} lang={lang} currentPath="/tags">
+  <div class="page container">
+    <h1 class="page-title">{t('tags.postsWith', { tag: decodedTag })}</h1>
+    <p class="page-desc"><a href="/tags" style="color: var(--color-brand);">← {t('tags.title')}</a></p>
+    {posts.length === 0 ? <p class="empty">{t('posts.empty')}</p> : <PostList posts={posts} lang={lang} />}
+  </div>
+</BaseLayout>
