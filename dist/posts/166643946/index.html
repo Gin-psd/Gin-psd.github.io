@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>9.27学习笔记 · 我的博客</title><meta name="description" content="本周课堂主要复习了字符串、列表、字典三种数据类型的异同，并系统学习了函数的定义与调用、参数类型、变量作用域、文件打开操作等新知识。 本周首先复习了三种容器类型的共同点与区别，这部分内容我已熟练掌握。"><link rel="canonical" href="https://gin-psd.github.io/posts/166643946/"><meta property="og:title" content="9.27学习笔记 · 我的博客"><meta property="og:description" content="本周课堂主要复习了字符串、列表、字典三种数据类型的异同，并系统学习了函数的定义与调用、参数类型、变量作用域、文件打开操作等新知识。 本周首先复习了三种容器类型的共同点与区别，这部分内容我已熟练掌握。"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta name="twitter:card" content="summary_large_view"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="/rss.xml"><script>
+      // 主题初始化（同步执行防闪烁）：localStorage 优先，否则跟随系统
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BS3yXAuO.css"><style>h2[data-astro-cid-5ukdginb]{margin-bottom:16px;font-size:1.1rem;font-weight:700}.comments-todo[data-astro-cid-5ukdginb]{color:var(--color-text-faint);border:1px dashed var(--color-border-strong);border-radius:var(--radius);padding:20px;font-size:.9rem}
+</style></head><body><header class="site-header"><div class="container"><a class="site-logo" href="/"><span class="logo-mark">B</span><span>我的博客</span></a><nav class="nav" id="site-nav" aria-label="菜单"><a href="/" class="nav-link">首页</a><a href="/posts" class="nav-link active">文章</a><a href="/tags" class="nav-link">标签</a><a href="/about" class="nav-link">关于</a></nav><div class="header-actions"><a class="icon-btn" href="/search" aria-label="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></a><button class="icon-btn" id="theme-toggle" aria-label="切换主题" title="切换主题" data-astro-cid-l6lhmie6><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-l6lhmie6><circle cx="12" cy="12" r="4" data-astro-cid-l6lhmie6></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" data-astro-cid-l6lhmie6></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-l6lhmie6><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" data-astro-cid-l6lhmie6></path></svg></button><script type="module">document.getElementById(`theme-toggle`)?.addEventListener(`click`,()=>{let e=document.documentElement,t=!e.classList.contains(`dark`);e.classList.toggle(`dark`,t),localStorage.setItem(`theme`,t?`dark`:`light`),window.dispatchEvent(new CustomEvent(`theme-change`,{detail:{dark:t}}))});</script><a class="lang-btn" href="/en/posts/166643946/" title="切换到英文">EN</a><button class="icon-btn menu-toggle" id="menu-toggle" aria-label="菜单" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></div></header><script type="module">var e=document.getElementById(`menu-toggle`),t=document.getElementById(`site-nav`);e?.addEventListener(`click`,()=>{let n=t?.classList.toggle(`open`);e?.setAttribute(`aria-expanded`,String(n))});</script><main><div class="reading-progress" id="reading-progress" aria-hidden="true"></div><script type="module">var e=document.getElementById(`reading-progress`),t=()=>{let t=document.documentElement,n=t.scrollHeight-t.clientHeight;e?.style.setProperty(`width`,n>0?`${t.scrollTop/n*100}%`:`0%`)};addEventListener(`scroll`,t,{passive:!0}),addEventListener(`resize`,t),t();</script><div class="page container"><div class="post-layout"><article><header class="post-header"><h1>9.27学习笔记</h1><div class="meta"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>发布于 <time datetime="2026-09-27T00:00:00.000Z">2026-09-27</time></span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>约 5 分钟阅读</span></div><p class="desc">本周课堂主要复习了字符串、列表、字典三种数据类型的异同，并系统学习了函数的定义与调用、参数类型、变量作用域、文件打开操作等新知识。 本周首先复习了三种容器类型的共同点与区别，这部分内容我已熟练掌握。</p></header><div class="prose"><h3 id="1-本周学习收获">1. 本周学习收获</h3>
+<p>本周课堂主要复习了字符串、列表、字典三种数据类型的异同，并系统学习了函数的定义与调用、参数类型、变量作用域、文件打开操作等新知识。</p>
+<h4 id="11-容器类型复习字符串列表字典">1.1 容器类型复习：字符串、列表、字典</h4>
+<p>本周首先复习了三种容器类型的共同点与区别，这部分内容我已熟练掌握。</p>
+<p><strong>共同点：</strong></p>
+<ul>
+<li>都属于容器类型，能够存放多个数据；</li>
+<li>都可以使用 <code>len()</code> 获取长度；</li>
+<li>都可以用 <code>for</code> 循环遍历；</li>
+<li>都可以用 <code>in</code> 关键字判断元素是否存在。</li>
+</ul>
+<p><strong>不同点：</strong></p>
+<p>特性</p>
+<p>字符串</p>
+<p>列表</p>
+<p>字典</p>
+<p>符号</p>
+<p>引号 <code>" "</code></p>
+<p>方括号 <code>[ ]</code></p>
+<p>大括号 <code>{ }</code></p>
+<p>存储内容</p>
+<p>只能存字符</p>
+<p>任意类型数据</p>
+<p>键值对</p>
+<p>可变性</p>
+<p>不可变</p>
+<p>可变</p>
+<p>可变</p>
+<p>取值方式</p>
+<p>数字下标</p>
+<p>数字下标</p>
+<p>键 key</p>
+<p>切片</p>
+<p>支持</p>
+<p>支持</p>
+<p>不支持</p>
+<p>键重复</p>
+<p>—</p>
+<p>—</p>
+<p>不允许</p>
+<p><strong>举例说明：</strong></p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 字符串：不可变，靠下标取值</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">s </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "hello"</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])        </span><span style="color:#6A737D;--shiki-dark:#6A737D"># h</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])      </span><span style="color:#6A737D;--shiki-dark:#6A737D"># el</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 列表：可变，支持增删改</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">lst </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">lst.append(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)      </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 增加</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">lst[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 100</span><span style="color:#6A737D;--shiki-dark:#6A737D">       # 修改</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(lst)         </span><span style="color:#6A737D;--shiki-dark:#6A737D"># [100, 2, 3, 4]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 字典：键值对，靠键取值</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">d </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"name"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"小明"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"age"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">18</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(d[</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"name"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])   </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 小明</span></span></code></pre>
+<h4 id="12-函数的定义与调用">1.2 函数的定义与调用</h4>
+<p>函数是封装特定功能的代码块，使用 <code>def</code> 关键字定义。这部分是本周新学内容，我已初步掌握基本用法。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a, b):      </span><span style="color:#6A737D;--shiki-dark:#6A737D"># a、b 是形参</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">    """两数相加"""</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> add(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)  </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 3、5 是实参</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(result)       </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 8</span></span></code></pre>
+<p>函数包含四个部分：函数名、形参、函数体与 <code>return</code> 返回值。调用时传入实参，形参是定义时的占位参数，实参是调用时传递的真实数据，还可以添加文档注释。</p>
+<h4 id="13-参数类型">1.3 参数类型</h4>
+<p>本周学习了三种参数类型，其中位置参数和默认值参数我已熟练掌握，关键字参数初步了解。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 位置参数：按顺序匹配，数量必须一致</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name, age):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">    print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">f</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">{</span><span style="color:#24292E;--shiki-dark:#E1E4E8">name</span><span style="color:#005CC5;--shiki-dark:#79B8FF">}</span><span style="color:#032F62;--shiki-dark:#9ECBFF">今年</span><span style="color:#005CC5;--shiki-dark:#79B8FF">{</span><span style="color:#24292E;--shiki-dark:#E1E4E8">age</span><span style="color:#005CC5;--shiki-dark:#79B8FF">}</span><span style="color:#032F62;--shiki-dark:#9ECBFF">岁"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">greet(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"小红"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">20</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 默认值参数：写在位置参数之后，不传则用默认值</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> greet2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name, age</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">18</span><span style="color:#24292E;--shiki-dark:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">    print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">f</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">{</span><span style="color:#24292E;--shiki-dark:#E1E4E8">name</span><span style="color:#005CC5;--shiki-dark:#79B8FF">}</span><span style="color:#032F62;--shiki-dark:#9ECBFF">今年</span><span style="color:#005CC5;--shiki-dark:#79B8FF">{</span><span style="color:#24292E;--shiki-dark:#E1E4E8">age</span><span style="color:#005CC5;--shiki-dark:#79B8FF">}</span><span style="color:#032F62;--shiki-dark:#9ECBFF">岁"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">greet2(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"小刚"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)       </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 使用默认值 18</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 关键字参数：形参名=值，不受顺序限制</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">greet2(</span><span style="color:#E36209;--shiki-dark:#FFAB70">age</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">22</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"小丽"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<h4 id="14-变量作用域局部变量与全局变量">1.4 变量作用域：局部变量与全局变量</h4>
+<h4 id="15-文件打开操作">1.5 文件打开操作</h4>
+<p>本周还学习了文件的基本操作，这部分内容我已初步掌握。文件打开方式主要分为三种：只读、覆盖写和追加写。</p>
+<p><strong>三种打开方式：</strong></p>
+<p>模式</p>
+<p>含义</p>
+<p>说明</p>
+<p><code>r</code></p>
+<p>只读</p>
+<p>只能读取文件内容，不能修改，文件不存在会报错</p>
+<p><code>w</code></p>
+<p>覆盖写</p>
+<p>写入内容会覆盖原文件，文件不存在会新建</p>
+<p><code>a</code></p>
+<p>追加写</p>
+<p>在文件末尾追加内容，不覆盖原有内容，文件不存在会新建</p>
+<p><strong>举例说明：</strong></p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 只读模式：r，只能读取内容</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> open</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"test.txt"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"r"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">encoding</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"utf-8"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">content </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> f.read()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(content)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f.close()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 覆盖写模式：w，会清空原内容再写入</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> open</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"test.txt"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"w"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">encoding</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"utf-8"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f.write(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"这是覆盖写入的内容"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f.close()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 追加写模式：a，在末尾追加，不覆盖原内容</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> open</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"test.txt"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"a"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">encoding</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"utf-8"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f.write(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">这是追加写入的内容"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">f.close()</span></span></code></pre>
+<p>变量分为局部变量和全局变量，这部分概念我已理解，但实际运用还需多练习。</p>
+<ul>
+<li>局部变量：在函数内部定义，仅在函数内生效，函数结束后销毁；</li>
+<li>全局变量：定义在函数外部，整个程序都可访问；</li>
+<li>同名时优先使用局部变量；</li>
+<li>在函数内修改全局变量需用 <code>global</code> 声明。</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">count </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 10</span><span style="color:#6A737D;--shiki-dark:#6A737D">          # 全局变量</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> change</span><span style="color:#24292E;--shiki-dark:#E1E4E8">():</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    global</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> count    </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 声明使用全局变量</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    count </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 20</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">change()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(count)        </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 20</span></span></code></pre>
+<h3 id="2-遇到的难题与困惑">2. 遇到的难题与困惑</h3>
+<p>本周学习中，我遇到以下几个困惑点，如实记录如下：</p>
+<ol>
+<li>
+<p><strong>局部变量与全局变量的作用域</strong>：当函数内出现与全局变量同名的变量时，到底什么时候是新建局部变量、什么时候是修改全局变量，我有时会判断错误，尤其是涉及 <code>global</code> 关键字时容易混淆。</p>
+</li>
+<li>
+<p><strong>默认值参数与位置参数的顺序</strong>：虽然知道默认值参数必须写在位置参数之后，但做题时偶尔会写反，导致报错。</p>
+</li>
+</ol>
+<h3 id="3-错题反思与总结">3. 错题反思与总结</h3>
+<p>本周做题时主要出现以下几类错误，我分析了原因并总结了改正方法。</p>
+<h4 id="31-出错原因分析">3.1 出错原因分析</h4>
+<p><strong>（1）粗心大意</strong></p>
+<ul>
+<li>在写字典取值时，把 <code>d["name"]</code> 写成了 <code>d[name]</code>，忘记给键加引号；</li>
+<li>调用函数时实参个数写错，多传或少传一个参数。</li>
+</ul>
+<p><strong>（2）知识点不熟练</strong></p>
+<ul>
+<li>混淆了列表和字典的取值方式，列表用下标、字典用键，做题时偶尔用错；</li>
+<li>对 <code>global</code> 关键字的使用场景判断不准，导致函数内修改全局变量失败。</li>
+</ul>
+<p><strong>（3）审题不清</strong></p>
+<ul>
+<li>题目要求用关键字参数调用函数，我却用了位置参数，导致顺序错误；</li>
+</ul>
+<h4 id="32-改正方法与技巧">3.2 改正方法与技巧</h4>
+<p>针对以上问题，我总结出以下改正方法：</p>
+<ol>
+<li>
+<p><strong>写字典取值时先检查键是否加引号</strong>：养成写完代码后回头检查的习惯，尤其是字符串键必须用引号包裹。</p>
+</li>
+<li>
+<p><strong>画表格对比记忆</strong>：把字符串、列表、字典的取值方式、可变性、是否支持切片整理成表格，贴在笔记本上，做题前先看一眼。</p>
+</li>
+<li>
+<p><strong>函数调用前先数参数个数</strong>：写函数调用语句前，先数清楚形参有几个，再对应写实参，避免数量不匹配。</p>
+</li>
+<li>
+<p><strong>多动手敲代码验证</strong>：遇到不确定的语法（如 <code>global</code>），直接在 Python 环境里运行验证，比死记硬背更有效。</p>
+</li>
+</ol>
+<h4 id="33-本周总结">3.3 本周总结</h4>
+<p>本周内容整体难度适中，容器类型复习部分掌握较好，函数基础部分基本掌握，文件打开操作初步了解，但作用域还需要加强练习。下周我计划针对薄弱点做专项练习，重点攻克全局变量的使用场景和文件读写操作。</p>
+</div><footer class="post-footer"><div class="post-tags-row"><span class="tags-label">标签</span><a class="tag" href="/tags/其他">其他</a></div><nav class="post-nav" aria-label="post navigation"><a href="/posts/165756801" class="prev"><div class="dir">← 上一篇</div><div class="t">9.19 学习笔记</div></a><a href="/posts/167575832" class="next"><div class="dir">下一篇 →</div><div class="t">Python 阶段二学习笔记：异常处理、模块调用与英雄信息管理系统</div></a></nav><section class="comments" id="comments" data-astro-cid-5ukdginb><h2 data-astro-cid-5ukdginb>评论</h2><p class="comments-todo" data-astro-cid-5ukdginb>评论区尚未配置，请在 Giscus.astro 中填入你的 GitHub 仓库信息。</p></section></footer></article><aside class="toc" aria-label="目录"><div class="toc-title">目录</div><ul><li class="toc-h3"><a href="#1-本周学习收获">1. 本周学习收获</a></li><li class="toc-h3"><a href="#2-遇到的难题与困惑">2. 遇到的难题与困惑</a></li><li class="toc-h3"><a href="#3-错题反思与总结">3. 错题反思与总结</a></li></ul></aside><script type="module">var e=document.querySelectorAll(`.toc a`),t=[...e].map(e=>document.getElementById(e.getAttribute(`href`).slice(1))).filter(e=>!!e),n=new IntersectionObserver(t=>{for(let n of t)n.isIntersecting&&e.forEach(e=>e.classList.toggle(`active`,e.getAttribute(`href`)===`#${n.target.id}`))},{rootMargin:`-80px 0px -70% 0px`});t.forEach(e=>n.observe(e));</script></div></div></main><footer class="site-footer"><div class="container"><span>© 2026 我的博客 · 保留所有权利</span><div class="links"><a href="/rss.xml" aria-label="RSS" title="RSS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.6-4.04-1.6-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.41-1.31.75-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.23c0 4.63-2.8 5.65-5.48 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path></svg></a><a href="mailto:todo@example.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></a></div></div></footer></body></html>

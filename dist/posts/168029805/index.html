@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>10.18学习笔记 · 我的博客</title><meta name="description" content="本周深入理解了面向对象编程的核心思想。类是对象的模板，对象是类的实例。通过 new 关键字创建对象，对象拥有类的属性和方法。 python class Student: def __init__(se"><link rel="canonical" href="https://gin-psd.github.io/posts/168029805/"><meta property="og:title" content="10.18学习笔记 · 我的博客"><meta property="og:description" content="本周深入理解了面向对象编程的核心思想。类是对象的模板，对象是类的实例。通过 new 关键字创建对象，对象拥有类的属性和方法。 python class Student: def __init__(se"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta name="twitter:card" content="summary_large_view"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="/rss.xml"><script>
+      // 主题初始化（同步执行防闪烁）：localStorage 优先，否则跟随系统
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BS3yXAuO.css"><style>h2[data-astro-cid-5ukdginb]{margin-bottom:16px;font-size:1.1rem;font-weight:700}.comments-todo[data-astro-cid-5ukdginb]{color:var(--color-text-faint);border:1px dashed var(--color-border-strong);border-radius:var(--radius);padding:20px;font-size:.9rem}
+</style></head><body><header class="site-header"><div class="container"><a class="site-logo" href="/"><span class="logo-mark">B</span><span>我的博客</span></a><nav class="nav" id="site-nav" aria-label="菜单"><a href="/" class="nav-link">首页</a><a href="/posts" class="nav-link active">文章</a><a href="/tags" class="nav-link">标签</a><a href="/about" class="nav-link">关于</a></nav><div class="header-actions"><a class="icon-btn" href="/search" aria-label="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></a><button class="icon-btn" id="theme-toggle" aria-label="切换主题" title="切换主题" data-astro-cid-l6lhmie6><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-l6lhmie6><circle cx="12" cy="12" r="4" data-astro-cid-l6lhmie6></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" data-astro-cid-l6lhmie6></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-l6lhmie6><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" data-astro-cid-l6lhmie6></path></svg></button><script type="module">document.getElementById(`theme-toggle`)?.addEventListener(`click`,()=>{let e=document.documentElement,t=!e.classList.contains(`dark`);e.classList.toggle(`dark`,t),localStorage.setItem(`theme`,t?`dark`:`light`),window.dispatchEvent(new CustomEvent(`theme-change`,{detail:{dark:t}}))});</script><a class="lang-btn" href="/en/posts/168029805/" title="切换到英文">EN</a><button class="icon-btn menu-toggle" id="menu-toggle" aria-label="菜单" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></div></header><script type="module">var e=document.getElementById(`menu-toggle`),t=document.getElementById(`site-nav`);e?.addEventListener(`click`,()=>{let n=t?.classList.toggle(`open`);e?.setAttribute(`aria-expanded`,String(n))});</script><main><div class="reading-progress" id="reading-progress" aria-hidden="true"></div><script type="module">var e=document.getElementById(`reading-progress`),t=()=>{let t=document.documentElement,n=t.scrollHeight-t.clientHeight;e?.style.setProperty(`width`,n>0?`${t.scrollTop/n*100}%`:`0%`)};addEventListener(`scroll`,t,{passive:!0}),addEventListener(`resize`,t),t();</script><div class="page container"><div class="post-layout"><article><header class="post-header"><h1>10.18学习笔记</h1><div class="meta"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>发布于 <time datetime="2026-10-18T00:00:00.000Z">2026-10-18</time></span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>约 6 分钟阅读</span></div><p class="desc">本周深入理解了面向对象编程的核心思想。类是对象的模板，对象是类的实例。通过 new 关键字创建对象，对象拥有类的属性和方法。 python class Student: def __init__(se</p></header><div class="prose"><h3 id="一本周学习收获">一、本周学习收获</h3>
+<h4 id="1-类与对象">1. 类与对象</h4>
+<p>本周深入理解了面向对象编程的核心思想。类是对象的模板，对象是类的实例。通过 <code>new</code> 关键字创建对象，对象拥有类的属性和方法。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Student</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> __init__</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(self, name, age):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        self</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        self</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.age </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> study</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(self):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">f</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"</span><span style="color:#005CC5;--shiki-dark:#79B8FF">{self</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.name</span><span style="color:#005CC5;--shiki-dark:#79B8FF">}</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> 正在学习"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 创建对象</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">stu </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Student(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"张三"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">20</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">stu.study()</span></span></code></pre>
+<h4 id="2-面向过程-vs-面向对象">2. 面向过程 vs 面向对象</h4>
+<ul>
+<li><strong>面向过程</strong>：以函数为中心，按步骤解决问题，关注“怎么做”</li>
+<li><strong>面向对象</strong>：以对象为中心，将数据和操作封装在一起，关注“谁来做”</li>
+</ul>
+<p>面向对象更符合人类的思维习惯，便于代码复用和维护。</p>
+<h4 id="3-三大特性">3. 三大特性</h4>
+<h5 id="封装">封装</h5>
+<p>封装将对象的属性和方法隐藏起来，只对外暴露必要的接口。通过 <code>private</code> 修饰属性，防止外部直接访问和修改。</p>
+<h5 id="继承">继承</h5>
+<p>子类继承父类的属性和方法，实现代码复用。使用 <code>extends</code> 关键字，子类可以重写父类的方法。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Animal</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> eat</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(self):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"动物在吃东西"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">Animal</span><span style="color:#24292E;--shiki-dark:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> eat</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(self):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"狗在啃骨头"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<h5 id="多态">多态</h5>
+<p>同一方法在不同对象上有不同表现。通过父类引用指向子类对象，调用时动态绑定实际类型的方法。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">a </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Dog()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">a.eat()  </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 输出：狗在啃骨头</span></span></code></pre>
+<h4 id="4-私有化与-setget-方法">4. 私有化与 set/get 方法</h4>
+<p>属性私有化后，通过 <code>set</code> 方法修改值、<code>get</code> 方法查询值，保证数据安全。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Person</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> __init__</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(self):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        self</span><span style="color:#24292E;--shiki-dark:#E1E4E8">._name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> None</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> set_name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(self, name):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        self</span><span style="color:#24292E;--shiki-dark:#E1E4E8">._name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> get_name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(self):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> self</span><span style="color:#24292E;--shiki-dark:#E1E4E8">._name</span></span></code></pre>
+<h4 id="5-利用-openai-sdk-调用大模型">5. 利用 OpenAI SDK 调用大模型</h4>
+<p>本周学习了如何通过 OpenAI SDK 调用大模型接口，核心流程包括：</p>
+<ol>
+<li><strong>任务</strong>：明确要完成的任务目标</li>
+<li><strong>对象</strong>：确定调用的大模型对象</li>
+<li><strong>约束内容</strong>：设置参数约束（如温度、最大 token 数）</li>
+<li><strong>表达</strong>：构造合适的提示词</li>
+<li><strong>提供上下文</strong>：给模型提供必要的背景信息</li>
+</ol>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> openai </span><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> OpenAI</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">client </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> OpenAI(</span><span style="color:#E36209;--shiki-dark:#FFAB70">api_key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"your-api-key"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">completion </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> client.chat.completions.create(</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    model</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"gpt-4"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    messages</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"role"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"user"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"content"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"请解释什么是多态"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(completion.choices[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">].message.content)</span></span></code></pre>
+<h4 id="6-提示词与提示词注入">6. 提示词与提示词注入</h4>
+<ul>
+<li><strong>提示词（Prompt）</strong>：引导模型输出的输入文本，好的提示词能显著提升回答质量</li>
+<li><strong>提示词注入（Prompt Injection）</strong>：恶意构造输入，试图让模型执行非预期指令，需要做好防护</li>
+</ul>
+<h4 id="7-断点的使用">7. 断点的使用</h4>
+<p>调试时设置断点可以暂停程序执行，观察变量状态：</p>
+<ul>
+<li><strong>恢复程序（Resume）</strong>：继续执行到下一个断点</li>
+<li><strong>步过（Step Over）</strong>：单步执行，不进入方法内部</li>
+</ul>
+<h4 id="8-http-协议与-api-交互">8. HTTP 协议与 API 交互</h4>
+<h5 id="请求结构">请求结构</h5>
+<ul>
+<li><strong>请求行</strong>：方法 + URL + 协议版本</li>
+<li><strong>请求头</strong>：携带认证信息、内容类型等</li>
+<li><strong>请求体</strong>：携带业务数据</li>
+</ul>
+<h5 id="响应结构">响应结构</h5>
+<ul>
+<li><strong>状态行</strong>：协议版本 + 状态码 + 状态描述</li>
+<li><strong>响应头</strong>：服务器信息、内容类型等</li>
+<li><strong>响应体</strong>：返回的业务数据</li>
+</ul>
+<h5 id="状态码">状态码</h5>
+<ul>
+<li><strong>200</strong>：成功</li>
+<li><strong>400</strong>：客户端请求错误</li>
+<li><strong>500</strong>：服务端内部错误</li>
+</ul>
+<h4 id="9-swagger-接口文档">9. Swagger 接口文档</h4>
+<p>Swagger 可以自动生成接口文档，方便前后端联调。一个好的接口必须有参数校验，对参数类型进行校验，避免非法数据进入系统。</p>
+<h4 id="10-请求与响应规范">10. 请求与响应规范</h4>
+<h4 id="11-对话小助手项目实践">11. 对话小助手项目实践</h4>
+<p>本周还利用 AI 工具实现了一个简易版的智能对话界面，将前面学到的大模型调用、HTTP 协议、接口规范等知识串联起来。</p>
+<h5 id="项目目标">项目目标</h5>
+<p>做一个能跟用户对话的小助手，用户输入问题，AI 返回回答，界面实时展示对话内容。</p>
+<h5 id="核心流程">核心流程</h5>
+<ol>
+<li><strong>前端界面</strong>：搭建一个简单的聊天窗口，包含输入框、发送按钮和消息列表</li>
+<li><strong>后端接口</strong>：接收用户消息，调用大模型 SDK 获取回答</li>
+<li><strong>对话交互</strong>：把用户消息和 AI 回答按顺序展示在界面上</li>
+</ol>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> os</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> uvicorn</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> openai </span><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> OpenAI</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> fastapi </span><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> FastAPI</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">app </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> FastAPI()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 请将 api_key 和 base_url 替换为你自己的配置</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">client </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> OpenAI(</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    api_key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"your-api-key"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">    base_url</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"https://your-base-url/v1"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">msgs </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"role"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"system"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"content"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"你是一只可爱的小狗，每次回答都需要汪一下"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">@app.get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"/chat"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> send_message</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(msg: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">str</span><span style="color:#24292E;--shiki-dark:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    u_msg </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"role"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"user"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"content"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: msg}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    msgs.append(u_msg)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    completion </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> client.chat.completions.create(</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">        model</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"qwen3.8-max"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">        messages</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">msgs,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    )</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> completion.choices[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">].message.content</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ai_msg </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"role"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"assistant"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"content"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: result}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    msgs.append(ai_msg)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> result</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "__main__"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    uvicorn.run(app, </span><span style="color:#E36209;--shiki-dark:#FFAB70">host</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"127.0.0.1"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">port</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">8000</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<h5 id="收获与体会">收获与体会</h5>
+<ul>
+<li>把「请求有规范、响应有规范」真正落地到了项目里，前后端联调顺畅了很多</li>
+<li>通过实际调用大模型，加深了对提示词工程的理解——同样的接口，提示词写得好，回答质量差别很大</li>
+<li>调试时用断点观察请求参数和响应结果，比盲目打印高效得多</li>
+</ul>
+<p>请求有规范，响应也应有统一规范：</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">  "msg"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"操作成功"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">  "data"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: [],</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">  "code"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">200</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>统一响应格式便于前端统一处理，降低联调成本。</p>
+<h3 id="二遇到的难题与困惑">二、遇到的难题与困惑</h3>
+<h4 id="1-多态的理解">1. 多态的理解</h4>
+<p>刚开始很难理解为什么父类引用调用子类方法，后来通过画内存图、多写多练，逐渐明白了动态绑定的原理。</p>
+<h4 id="2-提示词注入的防护">2. 提示词注入的防护</h4>
+<p>如何有效防止提示词注入？目前的理解是：对用户输入做过滤、限制系统指令的暴露、使用分隔符区分指令和数据，但实际效果还需要进一步验证。</p>
+<h4 id="3-http-状态码的区分">3. HTTP 状态码的区分</h4>
+<p>400 和 500 的区别容易混淆。经过学习明确：400 是客户端的问题（参数错误、格式不对），500 是服务端的问题（代码异常、数据库故障）。</p>
+<h4 id="4-参数校验的粒度">4. 参数校验的粒度</h4>
+<p>不知道参数校验应该做到什么程度，是只校验类型，还是也要校验业务规则（如范围、格式）？目前倾向于：基础类型校验 + 关键业务规则校验。</p>
+<h3 id="三错题反思与总结">三、错题反思与总结</h3>
+<h4 id="1-封装理解错误">1. 封装理解错误</h4>
+<p><strong>错误</strong>：以为 <code>private</code> 只是语法要求，不理解其意义。</p>
+<p><strong>反思</strong>：封装的核心是“保护数据 + 隐藏实现”，<code>private</code> 是手段，安全是目的。</p>
+<h4 id="2-继承与多态混淆">2. 继承与多态混淆</h4>
+<p><strong>错误</strong>：以为继承就是多态。</p>
+<p><strong>反思</strong>：继承是代码复用机制，多态是运行时行为。继承是多态的前提之一，但多态还依赖方法重写和动态绑定。</p>
+<h4 id="3-响应格式不统一">3. 响应格式不统一</h4>
+<p><strong>错误</strong>：不同接口返回不同格式，前端处理困难。</p>
+<p><strong>反思</strong>：统一响应格式（<code>{msg, data, code}</code>）是接口设计的基本规范，应在项目初期就确定。</p>
+<h4 id="4-调试效率低">4. 调试效率低</h4>
+<p><strong>错误</strong>：遇到问题不会用断点，只会加打印语句。</p>
+<p><strong>反思</strong>：断点 + 步过 + 观察变量，比打印语句更高效，应养成调试习惯。</p>
+<h4 id="5-总结">5. 总结</h4>
+<p>本周收获很大，从面向对象基础到 HTTP 协议、大模型调用，知识面拓宽了不少。接下来需要：</p>
+<ul>
+<li>多写代码巩固面向对象三大特性</li>
+<li>深入理解 HTTP 协议细节</li>
+<li>练习提示词工程，提升大模型调用效果</li>
+<li>规范接口设计，养成良好编码习惯</li>
+</ul>
+</div><footer class="post-footer"><div class="post-tags-row"><span class="tags-label">标签</span><a class="tag" href="/tags/其他">其他</a></div><nav class="post-nav" aria-label="post navigation"><a href="/posts/167575832" class="prev"><div class="dir">← 上一篇</div><div class="t">Python 阶段二学习笔记：异常处理、模块调用与英雄信息管理系统</div></a><a href="/posts/hello-world" class="next"><div class="dir">下一篇 →</div><div class="t">你好，世界</div></a></nav><section class="comments" id="comments" data-astro-cid-5ukdginb><h2 data-astro-cid-5ukdginb>评论</h2><p class="comments-todo" data-astro-cid-5ukdginb>评论区尚未配置，请在 Giscus.astro 中填入你的 GitHub 仓库信息。</p></section></footer></article><aside class="toc" aria-label="目录"><div class="toc-title">目录</div><ul><li class="toc-h3"><a href="#一本周学习收获">一、本周学习收获</a></li><li class="toc-h3"><a href="#二遇到的难题与困惑">二、遇到的难题与困惑</a></li><li class="toc-h3"><a href="#三错题反思与总结">三、错题反思与总结</a></li></ul></aside><script type="module">var e=document.querySelectorAll(`.toc a`),t=[...e].map(e=>document.getElementById(e.getAttribute(`href`).slice(1))).filter(e=>!!e),n=new IntersectionObserver(t=>{for(let n of t)n.isIntersecting&&e.forEach(e=>e.classList.toggle(`active`,e.getAttribute(`href`)===`#${n.target.id}`))},{rootMargin:`-80px 0px -70% 0px`});t.forEach(e=>n.observe(e));</script></div></div></main><footer class="site-footer"><div class="container"><span>© 2026 我的博客 · 保留所有权利</span><div class="links"><a href="/rss.xml" aria-label="RSS" title="RSS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.6-4.04-1.6-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.41-1.31.75-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.23c0 4.63-2.8 5.65-5.48 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path></svg></a><a href="mailto:todo@example.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></a></div></div></footer></body></html>

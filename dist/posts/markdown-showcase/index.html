@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Markdown 样式一览 · 我的博客</title><meta name="description" content="一篇用来检验博客排版效果的文章：代码高亮、表格、引用、列表等常见元素的渲染效果。"><link rel="canonical" href="https://gin-psd.github.io/posts/markdown-showcase/"><meta property="og:title" content="Markdown 样式一览 · 我的博客"><meta property="og:description" content="一篇用来检验博客排版效果的文章：代码高亮、表格、引用、列表等常见元素的渲染效果。"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta name="twitter:card" content="summary_large_view"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="/rss.xml"><script>
+      // 主题初始化（同步执行防闪烁）：localStorage 优先，否则跟随系统
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BS3yXAuO.css"><style>h2[data-astro-cid-5ukdginb]{margin-bottom:16px;font-size:1.1rem;font-weight:700}.comments-todo[data-astro-cid-5ukdginb]{color:var(--color-text-faint);border:1px dashed var(--color-border-strong);border-radius:var(--radius);padding:20px;font-size:.9rem}
+</style></head><body><header class="site-header"><div class="container"><a class="site-logo" href="/"><span class="logo-mark">B</span><span>我的博客</span></a><nav class="nav" id="site-nav" aria-label="菜单"><a href="/" class="nav-link">首页</a><a href="/posts" class="nav-link active">文章</a><a href="/tags" class="nav-link">标签</a><a href="/about" class="nav-link">关于</a></nav><div class="header-actions"><a class="icon-btn" href="/search" aria-label="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></a><button class="icon-btn" id="theme-toggle" aria-label="切换主题" title="切换主题" data-astro-cid-l6lhmie6><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-l6lhmie6><circle cx="12" cy="12" r="4" data-astro-cid-l6lhmie6></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" data-astro-cid-l6lhmie6></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-l6lhmie6><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" data-astro-cid-l6lhmie6></path></svg></button><script type="module">document.getElementById(`theme-toggle`)?.addEventListener(`click`,()=>{let e=document.documentElement,t=!e.classList.contains(`dark`);e.classList.toggle(`dark`,t),localStorage.setItem(`theme`,t?`dark`:`light`),window.dispatchEvent(new CustomEvent(`theme-change`,{detail:{dark:t}}))});</script><a class="lang-btn" href="/en/posts/markdown-showcase/" title="切换到英文">EN</a><button class="icon-btn menu-toggle" id="menu-toggle" aria-label="菜单" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></div></header><script type="module">var e=document.getElementById(`menu-toggle`),t=document.getElementById(`site-nav`);e?.addEventListener(`click`,()=>{let n=t?.classList.toggle(`open`);e?.setAttribute(`aria-expanded`,String(n))});</script><main><div class="reading-progress" id="reading-progress" aria-hidden="true"></div><script type="module">var e=document.getElementById(`reading-progress`),t=()=>{let t=document.documentElement,n=t.scrollHeight-t.clientHeight;e?.style.setProperty(`width`,n>0?`${t.scrollTop/n*100}%`:`0%`)};addEventListener(`scroll`,t,{passive:!0}),addEventListener(`resize`,t),t();</script><div class="page container"><div class="post-layout"><article><header class="post-header"><h1>Markdown 样式一览</h1><div class="meta"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>发布于 <time datetime="2026-10-22T00:00:00.000Z">2026-10-22</time></span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>约 1 分钟阅读</span></div><p class="desc">一篇用来检验博客排版效果的文章：代码高亮、表格、引用、列表等常见元素的渲染效果。</p></header><div class="prose"><p>这篇文章集中展示博客支持的 Markdown 元素，写新文章时可以参考这里的排版效果。</p>
+<h2 id="代码高亮">代码高亮</h2>
+<p>行内代码：<code>npm run dev</code>。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// TypeScript：类型收窄示例</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">type</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Result</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&lt;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="color:#E36209;--shiki-dark:#FFAB70">ok</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> true</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; </span><span style="color:#E36209;--shiki-dark:#FFAB70">value</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> T</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> } </span><span style="color:#D73A49;--shiki-dark:#F97583">|</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="color:#E36209;--shiki-dark:#FFAB70">ok</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; </span><span style="color:#E36209;--shiki-dark:#FFAB70">error</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Error</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> unwrap</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&lt;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;(</span><span style="color:#E36209;--shiki-dark:#FFAB70">r</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Result</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&lt;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;)</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> T</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (r.ok) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r.value; </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 这里 r 被收窄为 { ok: true; value: T }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  throw</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> r.error;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Shell</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> install</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> build</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> &amp;&amp; </span><span style="color:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> preview</span></span></code></pre>
+<h2 id="表格">表格</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm run dev</code></td>
+<td>启动本地开发服务器</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>构建生产版本</td>
+</tr>
+<tr>
+<td><code>npm run preview</code></td>
+<td>本地预览构建产物</td>
+</tr>
+</tbody>
+</table>
+<h2 id="引用">引用</h2>
+<blockquote>
+<p>简单是可靠的先决条件。</p>
+<p>—— Edsger W. Dijkstra</p>
+</blockquote>
+<h2 id="列表">列表</h2>
+<ol>
+<li>有序列表第一项</li>
+<li>有序列表第二项
+<ul>
+<li>嵌套的无序列表</li>
+<li>另一项</li>
+</ul>
+</li>
+</ol>
+<h2 id="其他元素">其他元素</h2>
+<p><strong>粗体</strong>、<em>斜体</em>、<del>删除线</del>，以及一个<a href="https://astro.build">外部链接</a>。</p>
+<hr>
+<p>以上元素如果渲染正常，说明博客的排版系统工作正常。</p>
+</div><footer class="post-footer"><div class="post-tags-row"><span class="tags-label">标签</span><a class="tag" href="/tags/排版">排版</a><a class="tag" href="/tags/Markdown">Markdown</a></div><p class="other-lang"><a href="/posts/markdown-showcase">English version →</a></p><nav class="post-nav" aria-label="post navigation"><a href="/posts/hello-world" class="prev"><div class="dir">← 上一篇</div><div class="t">你好，世界</div></a><span></span></nav><section class="comments" id="comments" data-astro-cid-5ukdginb><h2 data-astro-cid-5ukdginb>评论</h2><p class="comments-todo" data-astro-cid-5ukdginb>评论区尚未配置，请在 Giscus.astro 中填入你的 GitHub 仓库信息。</p></section></footer></article><aside class="toc" aria-label="目录"><div class="toc-title">目录</div><ul><li><a href="#代码高亮">代码高亮</a></li><li><a href="#表格">表格</a></li><li><a href="#引用">引用</a></li><li><a href="#列表">列表</a></li><li><a href="#其他元素">其他元素</a></li></ul></aside><script type="module">var e=document.querySelectorAll(`.toc a`),t=[...e].map(e=>document.getElementById(e.getAttribute(`href`).slice(1))).filter(e=>!!e),n=new IntersectionObserver(t=>{for(let n of t)n.isIntersecting&&e.forEach(e=>e.classList.toggle(`active`,e.getAttribute(`href`)===`#${n.target.id}`))},{rootMargin:`-80px 0px -70% 0px`});t.forEach(e=>n.observe(e));</script></div></div></main><footer class="site-footer"><div class="container"><span>© 2026 我的博客 · 保留所有权利</span><div class="links"><a href="/rss.xml" aria-label="RSS" title="RSS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.6-4.04-1.6-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.41-1.31.75-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.23c0 4.63-2.8 5.65-5.48 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path></svg></a><a href="mailto:todo@example.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></a></div></div></footer></body></html>
